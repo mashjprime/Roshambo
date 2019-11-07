@@ -11,36 +11,57 @@ namespace Roshambo
             Menu();
         }
 
+        public static void playGame()
+        {
+            Console.WriteLine("Round 1....");
+            pause(2);
+            Console.WriteLine("Fight");
+            pause(2);
+        }
+
+        public static void highScore()
+        {
+            Console.WriteLine("HighScore!!");
+            pause(2);
+        }
+
+        public static void pause(int x)
+        {
+            x = x * 1000 / 2;
+            Thread.Sleep(x);
+        }
+
         public static void Menu()
         {
             string menuInput = null;            
             String[] menuOptions;
-            int wrongSelectionCount = 0;
-            
+                    
             menuOptions = new string[3];
-            menuOptions[0] = "1. Play Game";
-            menuOptions[1] = "2. High Score";
-            menuOptions[2] = "3. Exit";
-           
+            menuOptions[0] = "Play Game";
+            menuOptions[1] = "High Score";
+            menuOptions[2] = "Exit";
+
             // Display options
-            Console.WriteLine("\n\nPlease select from the menu options below:");
+            string msg = "\n\nPlease select from the menu options below:";
+
             for (int i = 0; i < menuOptions.Length; i++)
             {
-                Console.WriteLine(menuOptions[i]);
+                msg+=("\n" + (i+1) +". " + menuOptions[i]);
             }
             
             // Take input
             while(menuInput != "exit")
             {
+                Console.WriteLine(msg);
                 menuInput = Console.ReadLine();
                 
                 switch (menuInput)
                 {
                     case "1":
-                        Console.WriteLine("Test");
+                        playGame();
                         break;
                     case "2":
-                        Console.WriteLine("High Score!!");
+                        highScore();
                         break;
                     case "3":
                         Environment.Exit(0);
@@ -57,16 +78,24 @@ namespace Roshambo
         public static void Intro()
         {
             Console.WriteLine("Welcome to Roshambo");
-            Thread.Sleep(500);
+            pause(1);
             Console.WriteLine("    The game of..");
-            Thread.Sleep(500);
+            pause(1);
             Console.Write("Rock");
-            Thread.Sleep(500);
+            pause(1);
             Console.Write("\tPaper");
-            Thread.Sleep(500);
+            pause(1);
             Console.Write("\tScissors");
         }
 
 
     }
 }
+
+/*Here's some random ideas..
+    Use VisualStudio as an email editor to benefit from a custom controlled intellisense ;)
+    
+     Practice using computers without a mouse at every opportunity
+
+    Write code.. Lots of code. Benefit from the lessons of writing music, don't mess around with tutes. Get in there and code!!
+     */
