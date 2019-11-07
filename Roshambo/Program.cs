@@ -13,25 +13,42 @@ namespace Roshambo
 
         public static void Menu()
         {
-            //int selection;
-            string menuInput;            
+            string menuInput = null;            
             String[] menuOptions;
+            int wrongSelectionCount = 0;
+            
             menuOptions = new string[3];
             menuOptions[0] = "1. Play Game";
             menuOptions[1] = "2. High Score";
             menuOptions[2] = "3. Exit";
-
+           
+            // Display options
             Console.WriteLine("\n\nPlease select from the menu options below:");
-
-            for(int i = 0; i < menuOptions.Length; i++)
+            for (int i = 0; i < menuOptions.Length; i++)
             {
                 Console.WriteLine(menuOptions[i]);
             }
-            Environment.Exit(0);
-            menuInput = Console.ReadLine();
-            while(menuInput != null)
+            
+            // Take input
+            while(menuInput != "exit")
             {
                 menuInput = Console.ReadLine();
+                
+                switch (menuInput)
+                {
+                    case "1":
+                        Console.WriteLine("Test");
+                        break;
+                    case "2":
+                        Console.WriteLine("High Score!!");
+                        break;
+                    case "3":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid selection");                       
+                        break;
+                }
             }
 
 
