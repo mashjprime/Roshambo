@@ -13,12 +13,48 @@ namespace Roshambo
 
         public static void playGame()
         {
-            Console.WriteLine("Round 1....");
-            pause(2);
-            Console.WriteLine("Fight");
-            pause(2);
-        }
+            player p1 = new player();
+            string selection = null;
 
+            Console.WriteLine("Please enter your name:");
+            string playerName = Console.ReadLine();
+            p1.SetPlayerName(playerName);
+            p1.SetHighScore(0);
+            Console.WriteLine($"Welcome {p1.GetPlayerName()}");
+            Console.WriteLine("\nTo play please enter a number corresponding to the options below:");
+            Console.WriteLine("1. Rock\n2. Paper\n3. Scissors");
+            pause(2);
+            Console.WriteLine("Ready?");
+            Console.ReadLine();
+            Console.Write("Rock");
+            pause(1);
+            Console.Write("\tPaper");
+            pause(1);
+            Console.Write("\tScissors");
+
+            // Take input
+            while (selection != "exit")
+            {
+                selection = Console.ReadLine();
+
+                switch (selection)
+                {
+                    case "1":
+                        Console.WriteLine("Rock");
+                        break;
+                    case "2":
+                        Console.WriteLine("Paper");
+                        break;
+                    case "3":
+                        Console.WriteLine("Scissors");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid selection");
+                        break;
+                }
+
+            }
+        }
         public static void highScore()
         {
             Console.WriteLine("HighScore!!");
