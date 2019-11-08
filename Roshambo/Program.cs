@@ -5,36 +5,75 @@ namespace Roshambo
 {
     class Program
     {
+        public static int score = 0;
         static void Main(string[] args)
         {
             Intro();
             Menu();
         }
 
+
+        // Generate a random number between two numbers  
+        public static int RandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(1, 4);
+        }
+
+        public static bool GameLogic(int input)
+        {
+            bool win = false;
+            int aiNum = RandomNumber();
+
+            if(input == aiNum)
+            {
+                Console.WriteLine("Draw");
+                win = false;
+            }
+            // Rock
+            else if(input == 1 && aiNum == 2) {
+                Console.WriteLine("Paper wraps rock");
+                win = false;
+            }
+            else if(input ==1 && aiNum == 3)
+            {
+                Console.WriteLine("Rock smashes scissors");
+                win = true;
+            }
+            // Paper
+            else if(input == 2 && aiNum == 1)
+            {
+                Console.WriteLine("Paper wraps rock");
+                win = true;
+            }
+            else if(input == 2 && aiNum == 3)
+            {
+                Console.WriteLine("Scissors cuts paper");
+                win = false;
+            }
+            // Scissors
+            else if(input == 3 && aiNum == 1)
+            {
+                Console.WriteLine("Rock smashes scissors");
+                win = false;
+            }
+            else if(input == 3 && aiNum == 2)
+            {
+                Console.WriteLine("Scissors cuts paper");
+                win = true;
+            }
+            return win;
+        }
+
         public static void playGame()
         {
-            player p1 = new player();
             string selection = null;
-
-            Console.WriteLine("Please enter your name:");
-            string playerName = Console.ReadLine();
-            p1.SetPlayerName(playerName);
-            p1.SetHighScore(0);
-            Console.WriteLine($"Welcome {p1.GetPlayerName()}");
             Console.WriteLine("\nTo play please enter a number corresponding to the options below:");
             Console.WriteLine("1. Rock\n2. Paper\n3. Scissors");
-            pause(2);
-            Console.WriteLine("Ready?");
-            Console.ReadLine();
-            Console.Write("Rock");
-            pause(1);
-            Console.Write("\tPaper");
-            pause(1);
-            Console.Write("\tScissors");
 
             // Take input
-            while (selection != "exit")
-            {
+            //while (selection != "1" || selection != "2" || selection != "3")
+           // {
                 selection = Console.ReadLine();
 
                 switch (selection)
@@ -53,7 +92,13 @@ namespace Roshambo
                         break;
                 }
 
+           // }
+            if (GameLogic(int.Parse(selection))) 
+            {
+                //p1.SetHighScore(+1);
+                Console.WriteLine("You Win!!");
             }
+
         }
         public static void highScore()
         {
@@ -122,6 +167,13 @@ namespace Roshambo
             Console.Write("\tPaper");
             pause(1);
             Console.Write("\tScissors");
+
+            player p1 = new player();
+            Console.WriteLine("\nPlease enter your name:");
+            string playerName = Console.ReadLine();
+            p1.SetPlayerName(playerName);
+            p1.SetHighScore(0);
+            Console.WriteLine($"Welcome {p1.GetPlayerName()}");
         }
 
 
