@@ -33,9 +33,9 @@ namespace Roshambo
 
 
             Console.WriteLine("\nPlease enter your name:");
-            Program.p1.SetPlayerName(Console.ReadLine());
+            Program.p1.PlayerName = (Console.ReadLine());
             Function.pause(1);
-            Console.WriteLine($"Welcome {Program.p1.GetPlayerName()}");
+            Console.WriteLine($"Welcome {Program.p1.PlayerName}");
             Function.pause(2);
             Console.Clear();
         }
@@ -85,9 +85,10 @@ namespace Roshambo
         public static void HighScore()
         {
             Console.WriteLine("HighScore");
-            Console.WriteLine("Win:  " + Program.p1.GetWinCount());
-            Console.WriteLine("Draw: " + Program.p1.GetDrawCount());
-            Console.WriteLine("Lose: " + Program.p1.GetLoseCount());
+            Console.WriteLine(Program.p1.PlayerName);
+            Console.WriteLine("Win:  " + Program.p1.WinCount);
+            Console.WriteLine("Draw: " + Program.p1.DrawCount);
+            Console.WriteLine("Lose: " + Program.p1.LoseCount);
             Function.pause(5);
         }
 

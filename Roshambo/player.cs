@@ -7,58 +7,17 @@ namespace Roshambo
     
     class Player
     {
-
-
-        public string playerName;
-        public int winCount = 0;
-        public int drawCount = 0;
-        public int loseCount = 0;
+        private string playerName;
+        private int winCount = 0;
+        private int drawCount = 0;
+        private int loseCount = 0;
+        public int LoseCount { get => loseCount; set => loseCount++; }
+        public int DrawCount { get => drawCount; set => drawCount++; }
+        public int WinCount { get => winCount; set => winCount++; }
+        public string PlayerName { get => playerName; set => playerName = value; }
 
         public Player()
         {
         }
-
-        public int GetWinCount()
-        {
-            return this.winCount;
-        }
-
-        public int GetDrawCount()
-        {
-            return this.drawCount;
-        }
-
-        public int GetLoseCount()
-        {
-            return this.loseCount;
-        }
-
-        public void WinCount()
-        {
-            this.winCount++;
-        }
-
-        public void DrawCount()
-        {
-            this.drawCount++;
-        }
-
-        public void LoseCount()
-        {
-            this.loseCount++;
-        }
-
-        public string GetPlayerName()
-        {
-            return this.playerName;
-        }
-
-        public void SetPlayerName(string name)
-        {
-            this.playerName = name;
-        }
-
-
-
     }
 }

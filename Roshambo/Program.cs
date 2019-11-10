@@ -27,7 +27,7 @@ namespace Roshambo
 
                 selection = Console.ReadLine();
 
-                Console.WriteLine("\n" + p1.GetPlayerName());
+                Console.WriteLine("\n" + p1.PlayerName);
 
                 if (selection == "4")
                 {
@@ -76,17 +76,17 @@ namespace Roshambo
                 if (weapon == 0)
                 {
                     Console.WriteLine("Draw!!");
-                    p1.DrawCount();
+                    p1.DrawCount = 1;
                 }
                 else if (weapon == (int.Parse(selection)))
                 {
                     Console.WriteLine("You win!!");
-                    p1.WinCount();
+                    p1.WinCount = 1;
                 }
                 else
                 {
                     Console.WriteLine("You lose..");
-                    p1.LoseCount();
+                    p1.LoseCount = 1;
                 }
                 Function.pause(6);
             }
