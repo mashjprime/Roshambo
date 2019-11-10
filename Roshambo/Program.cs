@@ -5,6 +5,7 @@ namespace Roshambo
     class Program
     {
         public static int score = 0;
+        public static Player p1 = new Player ();
         public static string[] weapons = { "Laser", "Rock", "Paper", "Scissors" };
         static void Main(string[] args)
         {
@@ -26,7 +27,7 @@ namespace Roshambo
 
                 selection = Console.ReadLine();
 
-                Console.WriteLine("\nYou...");
+                Console.WriteLine("\n" + p1.GetPlayerName());
 
                 if (selection == "4")
                 {
@@ -75,17 +76,19 @@ namespace Roshambo
                 if (weapon == 0)
                 {
                     Console.WriteLine("Draw!!");
+                    p1.DrawCount();
                 }
                 else if (weapon == (int.Parse(selection)))
                 {
                     Console.WriteLine("You win!!");
-                    //p1.SetHighScore(1);
+                    p1.WinCount();
                 }
                 else
                 {
                     Console.WriteLine("You lose..");
+                    p1.LoseCount();
                 }
-                Function.pause(4);
+                Function.pause(6);
             }
 
         }

@@ -16,7 +16,7 @@ namespace Roshambo
 
         public static void pause(int x)
         {
-            x = x * 1000 / 2;
+            x = x * 1000 / 4;
             Thread.Sleep(x);
         }
     }

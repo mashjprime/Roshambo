@@ -12,13 +12,13 @@ namespace Roshambo
             // Intro animation
             Console.Clear();
             Gfx.rockArt();
-            Function.pause(1);
+            Function.pause(2);
             Console.Clear();
             Gfx.paperArt();
-            Function.pause(1);
+            Function.pause(2);
             Console.Clear();
             Gfx.scissorArt();
-            Function.pause(1);
+            Function.pause(2);
             Console.Clear();
 
             Console.WriteLine("Welcome to Roshambo");
@@ -31,13 +31,11 @@ namespace Roshambo
             Function.pause(1);
             Console.Write("\tScissors");
 
-            player p1 = new player();
+
             Console.WriteLine("\nPlease enter your name:");
-            string playerName = Console.ReadLine();
+            Program.p1.SetPlayerName(Console.ReadLine());
             Function.pause(1);
-            p1.SetPlayerName(playerName);
-            p1.SetHighScore(0);
-            Console.WriteLine($"Welcome {p1.GetPlayerName()}");
+            Console.WriteLine($"Welcome {Program.p1.GetPlayerName()}");
             Function.pause(2);
             Console.Clear();
         }
@@ -86,8 +84,11 @@ namespace Roshambo
 
         public static void HighScore()
         {
-            Console.WriteLine("HighScore!!");
-            Function.pause(2);
+            Console.WriteLine("HighScore");
+            Console.WriteLine("Win:  " + Program.p1.GetWinCount());
+            Console.WriteLine("Draw: " + Program.p1.GetDrawCount());
+            Console.WriteLine("Lose: " + Program.p1.GetLoseCount());
+            Function.pause(5);
         }
 
 

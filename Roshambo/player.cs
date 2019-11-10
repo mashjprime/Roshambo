@@ -5,22 +5,47 @@ using System.Text;
 namespace Roshambo
 {
     
-    class player
+    class Player
     {
 
 
-        public string playerName { get; set; }
-        public int playerHighScore = 0 ;
+        public string playerName;
+        public int winCount = 0;
+        public int drawCount = 0;
+        public int loseCount = 0;
 
-
-        public int GetHighScore()
+        public Player()
         {
-            return this.playerHighScore;
         }
 
-        public void SetHighScore(int score)
+        public int GetWinCount()
         {
-            this.playerHighScore = score;
+            return this.winCount;
+        }
+
+        public int GetDrawCount()
+        {
+            return this.drawCount;
+        }
+
+        public int GetLoseCount()
+        {
+            return this.loseCount;
+        }
+
+        public void WinCount()
+        {
+            this.winCount++;
+        }
+
+        public void DrawCount()
+        {
+            this.drawCount++;
+        }
+
+        public void LoseCount()
+        {
+            this.loseCount++;
         }
 
         public string GetPlayerName()
