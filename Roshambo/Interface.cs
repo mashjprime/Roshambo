@@ -73,13 +73,23 @@ namespace Roshambo
                         HighScore();
                         break;
                     case "3":
-                        Environment.Exit(0);
+                        menuInput = "exit";
+                        //Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Invalid selection");
                         break;
                 }
             }
+        }
+
+        public static void Shutdown()
+        {
+            Console.WriteLine($"Thank you for playing {Program.p1.PlayerName}");
+            Function.pause(2);
+            Console.WriteLine("Shutting down..");
+            Function.pause(2);
+            Console.Clear();
         }
 
         public static void HighScore()

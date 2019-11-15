@@ -11,6 +11,7 @@ namespace Roshambo
         {
             Interface.Intro();
             Interface.Menu();
+            Interface.Shutdown();
         }
 
 

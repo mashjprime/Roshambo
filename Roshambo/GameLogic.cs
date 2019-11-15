@@ -9,15 +9,10 @@ namespace Roshambo
 
         public static int GetWinner(int playerInput, int aiInput)
         {
-            int result = 0;
+            int result;
 
-            // Draw
-            if (playerInput == aiInput)
-            {
-                result = 0;
-            }
             // Console.WriteLine("Rock smashes scissors..");
-            else if ((playerInput == 1 && aiInput == 3) || (playerInput == 1 && aiInput == 3))
+            if ((playerInput == 1 && aiInput == 3) || (playerInput == 3 && aiInput == 1))
             {
                 result = 1;
             }
@@ -30,6 +25,11 @@ namespace Roshambo
             else if ((playerInput == 3 && aiInput == 2) || (playerInput == 2 && aiInput == 3))
             {
                 result = 3;
+            }
+            // Draw
+            else
+            {
+                result = 0;
             }
             return result;
         }
